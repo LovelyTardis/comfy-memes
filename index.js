@@ -5,6 +5,20 @@ const port = 3000;
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
-});
 
-// Cambio tochísimo
+    app.get("/", (req, res) => {
+        res.json({
+            "code": 200,
+            "message": "OK"
+        });
+    });
+
+    app.get("/:id", (req, res) => {
+        const { id } = req.params;
+
+        res.json({
+            code: 200,
+            message: id
+        });
+    });
+});
